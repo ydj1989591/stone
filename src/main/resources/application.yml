@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+stone:
+  swagger-open: true              #是否开启swagger (true/false)
+  kaptcha-open: true             #是否开启登录时验证码 (true/false)
+  #  file-upload-path: d:/tmp     #文件上传目录(不配置的话为java.io.tmpdir目录)
+  spring-session-open: false      #是否开启spring session,如果是多机环境需要开启(true/false)
+  session-invalidate-time: 1800     #session失效时间(只在单机环境下生效，多机环境在SpringSessionConfig类中配置) 单位：秒
+  session-validation-interval: 900  #多久检测一次失效的session(只在单机环境下生效) 单位：秒
+
+spring:
+  resources:
+    static-locations: classpath:/static/
+  devtools:
+    restart:
+      enabled: false
+      additional-paths: src/main/kotlin
+      additional-exclude: static/**,templates/**
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://144.34.222.214:3306/stone?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
+    username: stone
+    password: Stone@2018
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    cache: false
+
+
+mybatis-plus:
+  type-aliases-package: com.ydj.stone.modular.system.entity
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_null
+  mapper-locations: classpath*:**/xml/**Mapper.xml
+
+logging:
+  level:
+    com.ydj.stone.modular.system.mapper: DEBUG
