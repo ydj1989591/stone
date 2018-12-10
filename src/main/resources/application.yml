@@ -23,7 +23,7 @@ spring:
       max-request-size: 100MB
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://144.34.222.214:3306/stone?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/stone?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
     username: stone
     password: Stone@2018
   redis:
